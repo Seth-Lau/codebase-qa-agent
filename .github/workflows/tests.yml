@@ -1,5 +1,5 @@
 # Runs the offline tool tests on every push and pull request.
-# No API key needed: test_tools.py never calls the model.
+# No API key needed: neither test file calls the model.
 name: tests
 
 on: [push, pull_request]
@@ -17,3 +17,4 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt
       - run: python test_tools.py
+      - run: python test_scoring.py
