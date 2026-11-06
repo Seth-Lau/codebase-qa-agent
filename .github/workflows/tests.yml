@@ -1,0 +1,19 @@
+# Runs the offline tool tests on every push and pull request.
+# No API key needed: test_tools.py never calls the model.
+name: tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]   # path rules differ between the two
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python test_tools.py

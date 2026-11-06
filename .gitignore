@@ -1,0 +1,12 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets: never commit keys. (The fake ones in tests are generated at runtime.)
+.env
+.env.*
+
+# Local only
+_backup_step1/
+.vscode/
